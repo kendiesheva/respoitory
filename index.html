@@ -1,131 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Our Results</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f9;
-    }
+<title>Indicateurs Territoriaux</title>
 
-    .section {
-      padding: 60px 40px;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  background: #f4f6f9;
+}
 
-    .title {
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 40px;
-      color: #222;
-    }
+/* TITRE */
+.section-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 600;
+  padding: 50px 20px 10px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
+/* SECTION */
+.stats-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #f3f7f4, #ffffff);
+}
 
-    .card {
-      background: white;
-      padding: 40px 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
+/* GRID */
+.stats-grid {
+  max-width: 1600px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
 
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
+/* CARD */
+.stat-card {
+  background: linear-gradient(180deg, #ffffff, #eef6f0);
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+}
 
-    .number {
-      font-size: 42px;
-      font-weight: bold;
-      color: #b23b3b;
-    }
+.stat-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.15);
+}
 
-    .text {
-      margin-top: 10px;
-      color: #555;
-      font-size: 15px;
-    }
+/* TITRE CARD */
+.stat-title {
+  font-size: 1.05rem;
+  color: #2b2b2b;
+  margin-bottom: 1.2rem;
+}
 
-    @media(max-width: 1000px){
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+/* SEPARATOR */
+.stat-divider {
+  width: 50px;
+  height: 4px;
+  background: #2e8b57;
+  margin: 0 auto 1.5rem;
+  border-radius: 3px;
+}
 
-    @media(max-width: 600px){
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+/* NUMBER */
+.stat-number {
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: #7ba98b;
+  margin-bottom: 0.5rem;
+}
+
+/* TEXT */
+.stat-text {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+/* BUTTON */
+.stat-btn {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  background: linear-gradient(135deg, #2e8b57, #3cb371);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.stat-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(46,139,87,0.4);
+}
+
+/* RESPONSIVE */
+@media(max-width: 1200px){
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 600px){
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="section">
-    <div class="title">Our Results</div>
+<h2 class="section-title">
+Zoom sur quelques indicateurs clés de performance en aménagement du territoire
+</h2>
 
-    <div class="grid">
+<section class="stats-section">
+  <div class="stats-grid">
 
-      <div class="card">
-        <div class="number" data-target="695">0</div>
-        <div class="text">Million people mapped</div>
+    <div class="stat-card">
+      <div>
+        <div class="stat-title">Affectation nationale</div>
+        <div class="stat-divider"></div>
+        <div class="stat-number" data-target="65" data-suffix="%">0</div>
+        <div class="stat-text">du territoire national est affecté aux concessions forestières et minières</div>
       </div>
-
-      <div class="card">
-        <div class="number" data-target="9">0</div>
-        <div class="text">Million settlements mapped</div>
-      </div>
-
-      <div class="card">
-        <div class="number" data-target="46584">0</div>
-        <div class="text">Maps distributed</div>
-      </div>
-
-      <div class="card">
-        <div class="number" data-target="25">0</div>
-        <div class="text">Countries supported</div>
-      </div>
-
+      <a href="#" class="stat-btn">Consulter</a>
     </div>
+
+    <div class="stat-card">
+      <div>
+        <div class="stat-title">Schémas d’Aménagement</div>
+        <div class="stat-divider"></div>
+        <div class="stat-number" data-target="3">0</div>
+        <div class="stat-text">départements accompagnés</div>
+      </div>
+      <a href="#" class="stat-btn">Consulter</a>
+    </div>
+
+    <div class="stat-card">
+      <div>
+        <div class="stat-title">Référentiel géospatial</div>
+        <div class="stat-divider"></div>
+        <div class="stat-number" data-target="95">0</div>
+        <div class="stat-text">bornes géodésiques installées</div>
+      </div>
+      <a href="#" class="stat-btn">Consulter</a>
+    </div>
+
+    <div class="stat-card">
+      <div>
+        <div class="stat-title">Acteurs engagés</div>
+        <div class="stat-divider"></div>
+        <div class="stat-number" data-target="3000">0</div>
+        <div class="stat-text">acteurs territoriaux mobilisés</div>
+      </div>
+      <a href="#" class="stat-btn">Consulter</a>
+    </div>
+
+    <div class="stat-card">
+      <div>
+        <div class="stat-title">Communes accompagnées</div>
+        <div class="stat-divider"></div>
+        <div class="stat-number" data-target="13">0</div>
+        <div class="stat-text">collectivités territoriales</div>
+      </div>
+      <a href="#" class="stat-btn">Consulter</a>
+    </div>
+
+    <div class="stat-card">
+      <div>
+        <div class="stat-title">Formations techniques</div>
+        <div class="stat-divider"></div>
+        <div class="stat-number" data-target="120">0</div>
+        <div class="stat-text">cadres et techniciens formés</div>
+      </div>
+      <a href="#" class="stat-btn">Consulter</a>
+    </div>
+
   </div>
+</section>
 
-  <script>
-    const counters = document.querySelectorAll('.number');
+<script>
+const counters = document.querySelectorAll('.stat-number');
 
-    counters.forEach(counter => {
-      let updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const speed = 60;
-        const increment = target / speed;
+const formatNumber = (num) => {
+  return num >= 1000 ? num.toLocaleString() : num;
+};
 
-        if(count < target){
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(updateCount, 30);
-        } else {
-          if(target >= 1000000){
-            counter.innerText = (target/1000000) + "M";
-          } else if(target >= 1000){
-            counter.innerText = target.toLocaleString();
-          } else {
-            counter.innerText = target + "+";
-          }
-        }
-      };
+const animateCounters = () => {
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    const suffix = counter.getAttribute('data-suffix') || "";
+    let count = 0;
+    const duration = 1200;
+    const increment = target / (duration / 30);
 
-      updateCount();
-    });
-  </script>
+    const updateCount = () => {
+      count += increment;
+      if (count < target) {
+        counter.innerText = formatNumber(Math.ceil(count)) + suffix;
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.innerText = formatNumber(target) + suffix;
+      }
+    };
+
+    updateCount();
+  });
+};
+
+/* animation au scroll */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounters();
+      observer.disconnect();
+    }
+  });
+});
+
+observer.observe(document.querySelector('.stats-section'));
+</script>
 
 </body>
 </html>
