@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats GRID3 Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: transparent; /* Pour s'intégrer au fond du Hub */
+            font-family: "Avenir Next", Avenir, "Helvetica Neue", sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .results-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .result-card {
+            background: #ffffff;
+            flex: 1;
+            min-width: 250px;
+            max-width: 320px;
+            padding: 40px 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .counter-value {
+            font-size: 45px;
+            font-weight: 800;
+            color: #a13d2d; /* Le rouge brique de GRID3 */
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .result-card h4 {
+            font-size: 16px;
+            color: #444;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="results-grid">
+        <!-- Carte 1 -->
+        <div class="result-card">
+            <span class="counter" data-target="695">0</span><span style="font-size: 45px; font-weight: 800; color: #a13d2d;">+ M</span>
+            <h4>Personnes visibles</h4>
+            <p>Nos jeux de données fournissent des informations cruciales sur la taille et la densité de la population.</p>
+        </div>
+
+        <!-- Carte 2 -->
+        <div class="result-card">
+            <span class="counter" data-target="9">0</span><span style="font-size: 45px; font-weight: 800; color: #a13d2d;">M</span>
+            <h4>Établissements</h4>
+            <p>Amélioration de la compréhension de la répartition spatiale des populations rurales et urbaines.</p>
+        </div>
+
+        <!-- Carte 3 -->
+        <div class="result-card">
+            <span class="counter" data-target="46584">0</span>
+            <h4>Cartes distribuées</h4>
+            <p>Soutien à la micro-planification des campagnes de santé et des interventions d'urgence.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 100; // Plus c'est bas, plus c'est rapide
+
+            const animate = (counter) => {
+                const value = +counter.getAttribute('data-target');
+                const data = +counter.innerText.replace(/,/g, '');
+                const time = value / speed;
+
+                if (data < value) {
+                    counter.innerText = Math.ceil(data + time).toLocaleString();
+                    setTimeout(() => animate(counter), 20);
+                } else {
+                    counter.innerText = value.toLocaleString();
+                }
+            }
+
+            // L'animation se lance dès que le fichier est chargé dans l'iframe
+            counters.forEach(c => animate(c));
+        });
+    </script>
+</body>
+</html>
