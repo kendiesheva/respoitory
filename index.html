@@ -201,25 +201,31 @@ const animateCounters = () => {
   counters.forEach(counter => {
     const target = +counter.getAttribute('data-target');
     const suffix = counter.getAttribute('data-suffix') || "";
-    let count = 0;
-    const duration = 1200;
-    const increment = target / (duration / 30);
+    
+    let start = 0;
+    const duration = 3500; // 🔥 plus lent (3.5 secondes)
+    const startTime = performance.now();
 
-    const updateCount = () => {
-      count += increment;
-      if (count < target) {
-        counter.innerText = formatNumber(Math.ceil(count)) + suffix;
+    const updateCount = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      const value = Math.floor(progress * target);
+
+      counter.innerText = formatNumber(value) + suffix;
+
+      if (progress < 1) {
         requestAnimationFrame(updateCount);
       } else {
         counter.innerText = formatNumber(target) + suffix;
       }
     };
 
-    updateCount();
+    requestAnimationFrame(updateCount);
   });
 };
 
-/* animation au scroll */
+/* déclenchement au scroll */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
