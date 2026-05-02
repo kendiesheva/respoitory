@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+    }
+
+    .section {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      color: #222;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .number {
+      font-size: 42px;
+      font-weight: bold;
+      color: #b23b3b;
+    }
+
+    .text {
+      margin-top: 10px;
+      color: #555;
+      font-size: 15px;
+    }
+
+    @media(max-width: 1000px){
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 600px){
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="section">
+    <div class="title">Our Results</div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="number" data-target="695">0</div>
+        <div class="text">Million people mapped</div>
+      </div>
+
+      <div class="card">
+        <div class="number" data-target="9">0</div>
+        <div class="text">Million settlements mapped</div>
+      </div>
+
+      <div class="card">
+        <div class="number" data-target="46584">0</div>
+        <div class="text">Maps distributed</div>
+      </div>
+
+      <div class="card">
+        <div class="number" data-target="25">0</div>
+        <div class="text">Countries supported</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const counters = document.querySelectorAll('.number');
+
+    counters.forEach(counter => {
+      let updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const speed = 60;
+        const increment = target / speed;
+
+        if(count < target){
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 30);
+        } else {
+          if(target >= 1000000){
+            counter.innerText = (target/1000000) + "M";
+          } else if(target >= 1000){
+            counter.innerText = target.toLocaleString();
+          } else {
+            counter.innerText = target + "+";
+          }
+        }
+      };
+
+      updateCount();
+    });
+  </script>
+
+</body>
+</html>
