@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Indicateurs Territoriaux</title>
-
 <style>
 body {
   margin: 0;
@@ -16,175 +8,136 @@ body {
 /* TITRE */
 .section-title {
   text-align: center;
-  font-size: 34px;
-  font-weight: 600;
-  padding: 50px 20px 10px;
+  font-size: 36px;
+  font-weight: 700;
+  padding: 50px 20px 20px;
 }
 
 /* SECTION */
 .stats-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(180deg, #f3f7f4, #ffffff);
+  padding: 3rem 1.5rem;
+  background: linear-gradient(180deg, #eef3f0, #ffffff);
 }
 
 /* GRID */
 .stats-grid {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 /* CARD */
 .stat-card {
-  background: linear-gradient(180deg, #ffffff, #eef6f0);
-  border-radius: 14px;
-  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
   text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: all 0.35s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 380px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .stat-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 22px 45px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
 }
 
-/* TITRE CARD */
+/* TITRE */
 .stat-title {
-  font-size: 1.05rem;
-  color: #2b2b2b;
-  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
 }
 
-/* SEPARATOR */
+/* LIGNE */
 .stat-divider {
-  width: 50px;
-  height: 4px;
+  width: 40px;
+  height: 3px;
   background: #2e8b57;
-  margin: 0 auto 1.5rem;
-  border-radius: 3px;
+  margin: 0 auto 1rem;
+  border-radius: 2px;
 }
 
 /* NUMBER */
 .stat-number {
-  font-size: 3.8rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: #7ba98b;
+  color: #2e8b57;
   margin-bottom: 0.5rem;
 }
 
 /* TEXT */
 .stat-text {
-  font-size: 0.95rem;
-  color: #444;
-  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.2rem;
 }
 
 /* BUTTON */
 .stat-btn {
   display: inline-block;
-  padding: 0.7rem 1.8rem;
-  background: linear-gradient(135deg, #2e8b57, #3cb371);
+  padding: 0.6rem 1.4rem;
+  background: #2e8b57;
   color: #fff;
+  border-radius: 20px;
+  font-size: 0.85rem;
   text-decoration: none;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease;
 }
 
 .stat-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(46,139,87,0.4);
+  background: #246b45;
 }
 
 /* RESPONSIVE */
 @media(max-width: 1200px){
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media(max-width: 600px){
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
+  .stats-grid { grid-template-columns: 1fr; }
 }
 </style>
-</head>
-
-<body>
 
 <h2 class="section-title">
-Zoom sur quelques indicateurs clés de performance en aménagement du territoire
+Indicateurs clés d’aménagement du territoire
 </h2>
 
 <section class="stats-section">
   <div class="stats-grid">
 
+    <!-- CARD -->
     <div class="stat-card">
-      <div>
-        <div class="stat-title">Affectation nationale</div>
-        <div class="stat-divider"></div>
-        <div class="stat-number" data-target="65" data-suffix="%">0</div>
-        <div class="stat-text">du territoire national est affecté aux concessions forestières et minières</div>
-      </div>
-      <a href="#" class="stat-btn">Consulter</a>
+      <div class="stat-title">Affectation nationale</div>
+      <div class="stat-divider"></div>
+      <div class="stat-number" data-target="65" data-suffix="%">0</div>
+      <div class="stat-text">du territoire affecté aux concessions</div>
+      <a href="#" class="stat-btn">Voir</a>
     </div>
 
     <div class="stat-card">
-      <div>
-        <div class="stat-title">Schémas d’Aménagement</div>
-        <div class="stat-divider"></div>
-        <div class="stat-number" data-target="3">0</div>
-        <div class="stat-text">départements accompagnés</div>
-      </div>
-      <a href="#" class="stat-btn">Consulter</a>
+      <div class="stat-title">Schémas d’aménagement</div>
+      <div class="stat-divider"></div>
+      <div class="stat-number" data-target="3">0</div>
+      <div class="stat-text">départements accompagnés</div>
+      <a href="#" class="stat-btn">Voir</a>
     </div>
 
     <div class="stat-card">
-      <div>
-        <div class="stat-title">Référentiel géospatial</div>
-        <div class="stat-divider"></div>
-        <div class="stat-number" data-target="95">0</div>
-        <div class="stat-text">bornes géodésiques installées</div>
-      </div>
-      <a href="#" class="stat-btn">Consulter</a>
+      <div class="stat-title">Bornes géodésiques</div>
+      <div class="stat-divider"></div>
+      <div class="stat-number" data-target="95">0</div>
+      <div class="stat-text">installées sur le territoire</div>
+      <a href="#" class="stat-btn">Voir</a>
     </div>
 
     <div class="stat-card">
-      <div>
-        <div class="stat-title">Acteurs engagés</div>
-        <div class="stat-divider"></div>
-        <div class="stat-number" data-target="3000">0</div>
-        <div class="stat-text">acteurs territoriaux mobilisés</div>
-      </div>
-      <a href="#" class="stat-btn">Consulter</a>
-    </div>
-
-    <div class="stat-card">
-      <div>
-        <div class="stat-title">Communes accompagnées</div>
-        <div class="stat-divider"></div>
-        <div class="stat-number" data-target="13">0</div>
-        <div class="stat-text">collectivités territoriales</div>
-      </div>
-      <a href="#" class="stat-btn">Consulter</a>
-    </div>
-
-    <div class="stat-card">
-      <div>
-        <div class="stat-title">Formations techniques</div>
-        <div class="stat-divider"></div>
-        <div class="stat-number" data-target="120">0</div>
-        <div class="stat-text">cadres et techniciens formés</div>
-      </div>
-      <a href="#" class="stat-btn">Consulter</a>
+      <div class="stat-title">Acteurs mobilisés</div>
+      <div class="stat-divider"></div>
+      <div class="stat-number" data-target="3000">0</div>
+      <div class="stat-text">acteurs territoriaux</div>
+      <a href="#" class="stat-btn">Voir</a>
     </div>
 
   </div>
@@ -193,43 +146,32 @@ Zoom sur quelques indicateurs clés de performance en aménagement du territoire
 <script>
 const counters = document.querySelectorAll('.stat-number');
 
-const formatNumber = (num) => {
-  return num >= 1000 ? num.toLocaleString() : num;
-};
+function animateCounter(counter) {
+  const target = +counter.dataset.target;
+  const suffix = counter.dataset.suffix || "";
+  let current = 0;
 
-const animateCounters = () => {
-  counters.forEach(counter => {
-    const target = +counter.getAttribute('data-target');
-    const suffix = counter.getAttribute('data-suffix') || "";
-    
-    let start = 0;
-    const duration = 6500; // 🔥 plus lent (3.5 secondes)
-    const startTime = performance.now();
+  const step = Math.max(1, target / 80); // 🔥 moins de calculs
 
-    const updateCount = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+  function update() {
+    current += step;
+    if (current < target) {
+      counter.textContent = Math.floor(current).toLocaleString() + suffix;
+      requestAnimationFrame(update);
+    } else {
+      counter.textContent = target.toLocaleString() + suffix;
+    }
+  }
 
-      const value = Math.floor(progress * target);
+  update();
+}
 
-      counter.innerText = formatNumber(value) + suffix;
-
-      if (progress < 1) {
-        requestAnimationFrame(updateCount);
-      } else {
-        counter.innerText = formatNumber(target) + suffix;
-      }
-    };
-
-    requestAnimationFrame(updateCount);
-  });
-};
-
-/* déclenchement au scroll */
-const observer = new IntersectionObserver(entries => {
+/* INTERSECTION OPTIMISÉ */
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      animateCounters();
+      entry.target.querySelectorAll('.stat-number')
+        .forEach(el => animateCounter(el));
       observer.disconnect();
     }
   });
@@ -237,6 +179,3 @@ const observer = new IntersectionObserver(entries => {
 
 observer.observe(document.querySelector('.stats-section'));
 </script>
-
-</body>
-</html>
