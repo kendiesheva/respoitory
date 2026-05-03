@@ -1,171 +1,183 @@
 <style>
 
-/* ================= GLOBAL ================= */
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #ffffff;
-}
-
-/* ================= TITRE ================= */
-.section-title {
-  text-align: left;
-  font-size: 26px;
-  font-weight: 600;
-  margin: 20px 20px 5px; /* 🔥 espace réduit */
-  color: #2b2b2b;
-}
-
-/* ================= SECTION ================= */
-.stats-section {
-  padding: 10px 20px 20px; /* 🔥 espace réduit */
-  background: #ffffff;
-}
-
-/* ================= GRID ================= */
-.stats-grid {
-  max-width: 1200px;
-  margin: auto;
+/* ===== GRID ===== */
+.cards-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 20px;
+  padding: 20px;
 }
 
-/* ================= CARD ================= */
-.stat-card {
+/* ===== CARD ===== */
+.card {
   background: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 8px;
-  padding: 18px;
-  text-align: left;
-  transition: border 0.2s ease;
+  border-radius: 14px;
+  padding: 25px 20px;
+  text-align: center;
+  position: relative;
+  border-top: 4px solid #c94c3b; /* 🔥 accent rouge */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: all 0.35s ease;
+  overflow: hidden;
 }
 
-.stat-card:hover {
-  border-color: #0079c1;
+/* Hover effet premium */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
-/* ================= TITRE ================= */
-.stat-title {
+/* Glow subtle */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(0,121,193,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* ===== ICON ===== */
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+/* ===== TITLE ===== */
+.card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+/* ===== TEXT ===== */
+.card p {
   font-size: 14px;
   color: #666;
-  margin-bottom: 8px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
-/* ================= NUMBER ================= */
-.stat-number {
-  font-size: 28px;
-  font-weight: 700;
-  color: #0079c1;
-  margin-bottom: 5px;
+/* ===== BUTTONS ===== */
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* ================= TEXT ================= */
-.stat-text {
+/* ANALYSER */
+.btn-primary {
+  background: #0079c1;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
   font-size: 13px;
-  color: #555;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-
-/* ================= BUTTON ================= */
-.stat-btn {
-  font-size: 13px;
-  color: #0079c1;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.stat-btn:hover {
-  text-decoration: underline;
+.btn-primary:hover {
+  background: #005a8c;
+  transform: translateY(-2px);
 }
 
-/* ================= RESPONSIVE ================= */
+/* TELECHARGER */
+.btn-secondary {
+  background: #c94c3b;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: #a63a2c;
+  transform: translateY(-2px);
+}
+
+/* ===== ANIMATION ENTRY ===== */
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.card:nth-child(1){ animation-delay: 0.1s; }
+.card:nth-child(2){ animation-delay: 0.2s; }
+.card:nth-child(3){ animation-delay: 0.3s; }
+.card:nth-child(4){ animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
 @media(max-width: 1000px){
-  .stats-grid {
+  .cards-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media(max-width: 600px){
-  .stats-grid {
+  .cards-container {
     grid-template-columns: 1fr;
   }
 }
 
 </style>
 
-<h2 class="section-title">
-Indicateurs clés d’aménagement du territoire
-</h2>
+<div class="cards-container">
 
-<section class="stats-section">
-  <div class="stats-grid">
-
-    <div class="stat-card">
-      <div class="stat-title">Affectation nationale</div>
-      <div class="stat-number" data-target="65" data-suffix="%">0</div>
-      <div class="stat-text">du territoire affecté aux concessions</div>
-      <a href="#" class="stat-btn">Voir les données</a>
+  <div class="card">
+    <div class="card-icon">🌳</div>
+    <h3>Forêt et Conservation</h3>
+    <p>Données pour le suivi du couvert forestier et des aires protégées.</p>
+    <div class="card-buttons">
+      <a href="#" class="btn-primary">ANALYSER</a>
+      <a href="#" class="btn-secondary">TÉLÉCHARGER</a>
     </div>
-
-    <div class="stat-card">
-      <div class="stat-title">Schémas d’aménagement</div>
-      <div class="stat-number" data-target="3">0</div>
-      <div class="stat-text">départements accompagnés</div>
-      <a href="#" class="stat-btn">Voir les données</a>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-title">Référentiel géospatial</div>
-      <div class="stat-number" data-target="95">0</div>
-      <div class="stat-text">bornes géodésiques installées</div>
-      <a href="#" class="stat-btn">Voir les données</a>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-title">Acteurs engagés</div>
-      <div class="stat-number" data-target="3000">0</div>
-      <div class="stat-text">acteurs territoriaux mobilisés</div>
-      <a href="#" class="stat-btn">Voir les données</a>
-    </div>
-
   </div>
-</section>
 
-<script>
-const counters = document.querySelectorAll('.stat-number');
+  <div class="card">
+    <div class="card-icon">🌾</div>
+    <h3>Agriculture & Élevage</h3>
+    <p>Planification et développement durable des systèmes agricoles.</p>
+    <div class="card-buttons">
+      <a href="#" class="btn-primary">ANALYSER</a>
+      <a href="#" class="btn-secondary">TÉLÉCHARGER</a>
+    </div>
+  </div>
 
-/* 🔥 version ultra légère */
-function animateCounter(el) {
-  const target = +el.dataset.target;
-  const suffix = el.dataset.suffix || "";
-  let value = 0;
-  const step = Math.max(1, target / 60); // moins de calculs
+  <div class="card">
+    <div class="card-icon">⛏️</div>
+    <h3>Mines</h3>
+    <p>Données sur les permis d’exploitation et zones minières.</p>
+    <div class="card-buttons">
+      <a href="#" class="btn-primary">ANALYSER</a>
+      <a href="#" class="btn-secondary">TÉLÉCHARGER</a>
+    </div>
+  </div>
 
-  function update() {
-    value += step;
-    if (value < target) {
-      el.textContent = Math.floor(value).toLocaleString() + suffix;
-      requestAnimationFrame(update);
-    } else {
-      el.textContent = target.toLocaleString() + suffix;
-    }
-  }
+  <div class="card">
+    <div class="card-icon">🛢️</div>
+    <h3>Hydrocarbures</h3>
+    <p>Données sur les permis pétroliers et zones de recherche.</p>
+    <div class="card-buttons">
+      <a href="#" class="btn-primary">ANALYSER</a>
+      <a href="#" class="btn-secondary">TÉLÉCHARGER</a>
+    </div>
+  </div>
 
-  update();
-}
-
-/* déclenchement unique */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.stat-number')
-        .forEach(el => animateCounter(el));
-      observer.disconnect();
-    }
-  });
-});
-
-observer.observe(document.querySelector('.stats-section'));
-</script>
+</div>
